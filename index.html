@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LA LUNA Chocolates</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;700&family=Caveat:wght@400;700&family=Roboto+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="mobile">
+      <div class="logo">LA LUNA</div>
+      <button id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="menu">
+        <button id="closeMenu" aria-label="Close menu">X</button>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#chocolates">CHOCOLATES</a>
+        <a href="#events">EVENTS</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="full-height">
+        <h1 class="main-text">LA LUNA</h1>
+        <p class="undertext">homemade chocolates</p>
+      </section>
+      <section id="about" class="full-height">
+        <div class="description">
+          
+          <br>SMALL BATCH BEAN-TO-BAR CHOCOLATE</br>
+          <br>100% FAIR TRADE BEANS</br>
+          <br>100% LOUISIANA CANE SUGAR</br>
+          <br>MADE IN BATON ROUGE</br>
+        </div>
+      </section>
+
+      <section id="chocolates" class="full-height">
+        <h2>CHOCOLATES</h2>
+        <div class="chocolate-grid">
+          <div class="chocolate-item">
+            <img src="/placeholder.svg?height=300&width=300" alt="Chocolate 1" loading="lazy" />
+          </div>
+          <div class="chocolate-item">
+            <img src="/placeholder.svg?height=300&width=300" alt="Chocolate 2" loading="lazy" />
+          </div>
+          <div class="chocolate-item">
+            <img src="/placeholder.svg?height=300&width=300" alt="Chocolate 3" loading="lazy" />
+          </div>
+          <div class="chocolate-item">
+            <img src="/placeholder.svg?height=300&width=300" alt="Chocolate 4" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <section id="events" class="full-height">
+        <h2>EVENTS</h2>
+        <div class="calendar-container">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=your_calendar_id%40group.calendar.google.com&ctz=America%2FChicago"
+            style="border: 0"
+            width="100%"
+            height="600"
+            frameborder="0"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="full-height">
+      <div>
+        <h2>CONTACT US</h2>
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <!-- <label for="name">Name</label> -->
+            <input type="text" id="name" name="name" placeholder="Name" required />
+          </div>
+          <div class="form-group">
+            <!-- <label for="phone">Phone</label> -->
+            <input type="tel" id="phone" name="phone" placeholder="Phone" required />
+          </div>
+          <div class="form-group">
+            <!-- <label for="email">Email</label> -->
+            <input type="email" id="email" name="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <!-- <label for="message">Message</label> -->
+            <textarea id="message" name="message" placeholder="Message" required></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <p>
+        SMALL BATCH BEAN-TO-BAR CHOCOLATE<br />100% FAIR TRADE BEANS,<br />100% LOUISIANA CANE SUGAR MADE IN BATON ROUGE
+      </p>
+      <div class="contact">
+        <h3>CONTACT US</h3>
+        <p>EMAIL: info@lalunachocolates.com</p>
+        <p>PHONE: (555) 123-4567</p>
+      </div>
+      <div class="social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Twitter">t</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

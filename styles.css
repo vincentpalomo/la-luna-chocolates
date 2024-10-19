@@ -1,0 +1,284 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  color: black;
+  background-color: white;
+  line-height: 1.6;
+}
+
+.full-height {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#menuToggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+#menuToggle span {
+  width: 2rem;
+  height: 0.25rem;
+  background: black;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  padding-top: 3rem;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+
+nav.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+}
+
+#closeMenu {
+  position: absolute;
+  top: 1rem;
+  right: 2.5rem; /* Moved 24px from the right */
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+#menuToggle.hidden {
+  display: none;
+}
+
+h1 {
+  font-family: 'Roboto Mono';
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Commissioner';
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.description {
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Roboto Mono';
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 32px;
+}
+
+.main-text {
+  font-family: 'Commissioner';
+  font-size: 72px;
+  line-height: 40px;
+  letter-spacing: -3px;
+}
+
+.undertext {
+  font-family: 'Caveat';
+  font-size: 36px;
+  letter-spacing: -3px;
+}
+
+.chocolate-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.chocolate-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.calendar-container {
+  width: 100%;
+  max-width: 800px;
+}
+
+footer {
+  text-align: center;
+}
+
+.contact {
+  margin: 2rem 0;
+}
+
+.social a {
+  font-size: 2rem;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .chocolate-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 600px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chocolate-grid {
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1200px;
+  }
+
+  header {
+      padding: 1rem 2rem;
+  }
+
+  #menuToggle, #closeMenu {
+      display: none;
+  }
+
+  nav {
+      position: static;
+      height: auto;
+      width: auto;
+      background-color: transparent;
+      transform: none;
+      opacity: 1;
+      flex-direction: row;
+      padding-top: 0;
+  }
+
+  nav a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+  }
+
+  .description {
+    max-width: 95vw;
+    font-family: 'Roboto Mono';
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 60px;
+    letter-spacing: -3%;
+  }
+
+  .main-text {
+    font-family: 'Commissioner';
+    font-size: 200px;
+    line-height: 150px;
+    letter-spacing: -4px;
+    font-weight: normal;
+  }
+
+  .undertext {
+    font-family: 'Caveat';
+    font-size: 48px;
+    letter-spacing: -3px;
+  }
+}
+
+.contact-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: #000 1px solid;
+}
+
+.form-group {
+  margin-bottom: 4px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  height: 150px;
+}
+
+.contact-form button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.contact-form button:hover {
+  background-color: #333;
+}
