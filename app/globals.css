@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Commissioner:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* @layer base {
+  body {
+    @apply font-roboto text-black bg-white leading-relaxed;
+  }
+} */
+
+/* @layer components {
+  .font-commissioner {
+    font-family: 'Commissioner', sans-serif;
+  }
+
+  .font-caveat {
+    font-family: 'Caveat', cursive;
+  }
+
+  .font-roboto-mono {
+    font-family: 'Roboto Mono', monospace;
+  }
+} */
