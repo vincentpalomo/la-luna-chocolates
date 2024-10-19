@@ -82,6 +82,8 @@ export default function Header() {
           </Link>
         </nav>
       </div>
+
+      {/* desktop */}
       <div className="hidden sm:flex">
         <Link
           href="#home"
@@ -112,12 +114,12 @@ export default function Header() {
           Events
         </Link>
       </div>
-      <Link href="#home" className="text-2xl font-bold w-[35%] 2xl:w-[20%]">
+      <Link href="#home" className="text-2xl font-bold w-[35%] 2xl:w-[20%] hidden sm:flex">
         <Image src="/images/lalunachocolates.svg" alt={`logo`} width={300} height={300} className="h-20 w-20" />
       </Link>
       <Link
         href="#contact"
-        className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+        className="sm:block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 hidden"
         onClick={toggleMenu}
       >
         Contacts

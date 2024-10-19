@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function Chocolates() {
   return (
     <section id="chocolates" className="min-h-screen flex flex-col justify-center items-center p-5">
-      <h2 className="font-commissioner text-4xl sm:text-[200px] sm:tracking-tighter mb-8 text-center sm:mb-20 mt-24">
+      <h2 className="font-commissioner text-[48px] sm:text-[200px] sm:tracking-tighter mb-4 text-center sm:mb-20 mt-24">
         CHOCOLATES
       </h2>
 
