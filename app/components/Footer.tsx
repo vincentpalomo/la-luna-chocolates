@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="min-h-screen flex sm:flex-row flex-col justify-center items-center p-5 text-center sm:justify-between sm:px-20"
+      className="min-h-screen flex sm:flex-row flex-col justify-center items-center p-5 text-center sm:justify-between sm:px-10"
     >
       <div className="text-left text-[32px] tracking-tighter hidden sm:block font-text w-[640px]">
         <p>
@@ -24,10 +24,10 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex flex-col items-start sm:pt-16">
+      <div className="flex flex-col items-start sm:pt-10">
         <h2 className="font-text text-4xl pb-1">CONTACT US</h2>
         <form className="w-full mx-auto flex flex-col">
-          <div className="mb-4">
+          <div className="mb-1">
             <input
               type="text"
               id="name"
@@ -38,7 +38,7 @@ export default function Footer() {
             />
           </div>
           <div className="sm:flex sm:gap-2 ">
-            <div className="mb-4">
+            <div className="mb-1">
               <input
                 type="tel"
                 id="phone"
@@ -48,7 +48,7 @@ export default function Footer() {
                 className="w-full p-2 border border-gray-300 rounded-lg"
               />
             </div>
-            <div className="mb-4">
+            <div className="mb-1">
               <input
                 type="email"
                 id="email"
@@ -59,7 +59,7 @@ export default function Footer() {
               />
             </div>
           </div>
-          <div className="mb-4">
+          <div className="mb-1">
             <textarea
               id="message"
               name="message"

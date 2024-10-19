@@ -11,7 +11,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 flex justify-between items-center p-5 bg-white z-50">
+    <header className="fixed top-0 left-0 right-0 flex justify-between items-center p-5 sm:px-10 bg-white z-50">
       <Link href="#home" className="text-2xl font-bold">
         LA LUNA
       </Link>
@@ -44,38 +44,38 @@ export default function Header() {
         )}
         <Link
           href="#home"
-          className="block py-4 px-4 text-black text-lg no-underline lg:inline-block lg:py-2 lg:px-4"
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
           onClick={toggleMenu}
         >
-          HOME
+          Home
         </Link>
         <Link
           href="#about"
-          className="block py-4 px-4 text-black text-lg no-underline lg:inline-block lg:py-2 lg:px-4"
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
           onClick={toggleMenu}
         >
-          ABOUT
+          About
         </Link>
         <Link
           href="#chocolates"
-          className="block py-4 px-4 text-black text-lg no-underline lg:inline-block lg:py-2 lg:px-4"
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
           onClick={toggleMenu}
         >
-          CHOCOLATES
+          Products
         </Link>
         <Link
           href="#events"
-          className="block py-4 px-4 text-black text-lg no-underline lg:inline-block lg:py-2 lg:px-4"
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
           onClick={toggleMenu}
         >
-          EVENTS
+          Events
         </Link>
         <Link
           href="#contact"
-          className="block py-4 px-4 text-black text-lg no-underline lg:inline-block lg:py-2 lg:px-4"
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
           onClick={toggleMenu}
         >
-          CONTACT
+          Contacts
         </Link>
       </nav>
     </header>
