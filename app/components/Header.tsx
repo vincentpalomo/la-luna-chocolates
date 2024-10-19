@@ -94,25 +94,25 @@ export default function Header() {
       {/* desktop */}
       <div className="hidden sm:flex">
         <div
-          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
+          className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
           onClick={() => scrollTo('#home')}
         >
           Home
         </div>
         <div
-          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
+          className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
           onClick={() => scrollTo('#about')}
         >
           About
         </div>
         <div
-          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
+          className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
           onClick={() => scrollTo('#chocolates')}
         >
           Products
         </div>
         <div
-          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
+          className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
           onClick={() => scrollTo('#events')}
         >
           Events
