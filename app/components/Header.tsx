@@ -82,40 +82,39 @@ export default function Header() {
           </Link>
         </nav>
       </div>
-
-      <Link
-        href="#home"
-        className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-        onClick={toggleMenu}
-      >
-        Home
-      </Link>
-      <Link
-        href="#about"
-        className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-        onClick={toggleMenu}
-      >
-        About
-      </Link>
-      <Link
-        href="#chocolates"
-        className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-        onClick={toggleMenu}
-      >
-        Products
-      </Link>
-      <Link
-        href="#events"
-        className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-        onClick={toggleMenu}
-      >
-        Events
-      </Link>
-
-      <Link href="#home" className="text-2xl font-bold">
+      <div className="">
+        <Link
+          href="#home"
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+          onClick={toggleMenu}
+        >
+          Home
+        </Link>
+        <Link
+          href="#about"
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+          onClick={toggleMenu}
+        >
+          About
+        </Link>
+        <Link
+          href="#chocolates"
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+          onClick={toggleMenu}
+        >
+          Products
+        </Link>
+        <Link
+          href="#events"
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+          onClick={toggleMenu}
+        >
+          Events
+        </Link>
+      </div>
+      <Link href="#home" className="text-2xl font-bold w-[35%]">
         <Image src="/images/lalunachocolates.svg" alt={``} width={300} height={300} className="h-20 w-20" />
       </Link>
-
       <Link
         href="#contact"
         className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
