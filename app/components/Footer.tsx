@@ -1,3 +1,5 @@
+import { Facebook, Instagram } from 'lucide-react';
+
 export default function Footer() {
   return (
     <footer
@@ -15,12 +17,19 @@ export default function Footer() {
 
         <div className="mt-8">
           <p className="font-text text-[32px] font-bold uppercase">Follow Us</p>
-          <a href="#" aria-label="Facebook" className="text-3xl mx-2">
-            f
-          </a>
-          <a href="#" aria-label="Twitter" className="text-3xl mx-2">
-            t
-          </a>
+          <div className="flex items-center mt-2">
+            <a href="https://www.facebook.com/LaLunaChocolate/" target="_blank" aria-label="Facebook" className="mr-4">
+              <Facebook size={32} color="black" />
+            </a>
+            <a
+              href="https://www.instagram.com/lalunachocolates/?hl=en"
+              target="_blank"
+              aria-label="Instagram"
+              className="ml-4"
+            >
+              <Instagram size={32} color="black" />
+            </a>
+          </div>
         </div>
       </div>
 
@@ -77,14 +86,21 @@ export default function Footer() {
         </form>
       </div>
 
-      <div className="mt-8 sm:hidden">
+      <div className="mt-8 sm:hidden flex flex-col items-center justify-center">
         <p className="font-text text-[32px] font-bold uppercase">Follow Us</p>
-        <a href="#" aria-label="Facebook" className="text-3xl mx-2">
-          f
-        </a>
-        <a href="#" aria-label="Instagram" className="text-3xl mx-2">
-          i
-        </a>
+        <div className="flex items-center mt-2">
+          <a href="https://www.facebook.com/LaLunaChocolate/" target="_blank" aria-label="Facebook" className="mr-4">
+            <Facebook size={32} color="black" />
+          </a>
+          <a
+            href="https://www.instagram.com/lalunachocolates/?hl=en"
+            target="_blank"
+            aria-label="Instagram"
+            className="ml-4"
+          >
+            <Instagram size={32} color="black" />
+          </a>
+        </div>
       </div>
     </footer>
   );
