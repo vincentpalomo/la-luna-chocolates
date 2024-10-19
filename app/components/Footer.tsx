@@ -10,9 +10,11 @@ export default function Footer() {
         <p>
           SMALL BATCH BEAN-TO-BAR CHOCOLATE
           <br />
-          100% FAIR TRADE BEANS,
+          100% FAIR TRADE BEANS
           <br />
-          100% LOUISIANA CANE SUGAR MADE IN BATON ROUGE
+          100% LOUISIANA CANE SUGAR
+          <br />
+          MADE IN BATON ROUGE
         </p>
 
         <div className="mt-8">
