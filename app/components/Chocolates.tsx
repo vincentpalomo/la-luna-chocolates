@@ -8,15 +8,20 @@ export default function Chocolates() {
       </h2>
 
       <div className="flex sm:flex-row flex-col justify-around gap-4 w-full max-w-[1200px]">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="chocolate-item">
+        {[
+          { id: 1, type: 'Milk Chocolate' },
+          { id: 2, type: 'Milky-Dark Chocolate' },
+          { id: 3, type: 'Dark Chocolate' },
+        ].map((chocolate) => (
+          <div key={chocolate.id} className="chocolate-item">
             <Image
-              src={`/images/image.psd-${i}.png`}
-              alt={`Chocolate ${i}`}
+              src={`/images/image.psd-${chocolate.id}.png`}
+              alt={`${chocolate.type}`}
               width={300}
               height={300}
               className="w-full sm:h-[500px] object-cover"
             />
+            <div className="mt-2 text-center font-text text-[20px]">{chocolate.type}</div>
           </div>
         ))}
       </div>

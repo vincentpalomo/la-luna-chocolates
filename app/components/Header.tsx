@@ -113,7 +113,7 @@ export default function Header() {
         </Link>
       </div>
       <Link href="#home" className="text-2xl font-bold w-[35%] 2xl:w-[20%]">
-        <Image src="/images/lalunachocolates.svg" alt={``} width={300} height={300} className="h-20 w-20" />
+        <Image src="/images/lalunachocolates.svg" alt={`logo`} width={300} height={300} className="h-20 w-20" />
       </Link>
       <Link
         href="#contact"
