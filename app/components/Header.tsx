@@ -2,7 +2,7 @@
 
 import gsap from 'gsap';
 import { useState } from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Image from 'next/image';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
@@ -99,38 +99,37 @@ export default function Header() {
         >
           Home
         </div>
-        <Link
-          href="#about"
-          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-          onClick={toggleMenu}
+        <div
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
+          onClick={() => scrollTo('#about')}
         >
           About
-        </Link>
-        <Link
-          href="#chocolates"
-          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-          onClick={toggleMenu}
+        </div>
+        <div
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
+          onClick={() => scrollTo('#chocolates')}
         >
           Products
-        </Link>
-        <Link
-          href="#events"
-          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-          onClick={toggleMenu}
+        </div>
+        <div
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
+          onClick={() => scrollTo('#events')}
         >
           Events
-        </Link>
+        </div>
       </div>
-      <Link href="#home" className="text-2xl font-bold w-[35%] 2xl:w-[20%] hidden sm:flex">
+      <div
+        className="text-2xl font-bold w-[35%] 2xl:w-[20%] hidden sm:flex cursor-pointer"
+        onClick={() => scrollTo('#home')}
+      >
         <Image src="/images/lalunachocolates.svg" alt={`logo`} width={300} height={300} className="h-20 w-20" />
-      </Link>
-      <Link
-        href="#contact"
-        className="sm:block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 hidden"
-        onClick={toggleMenu}
+      </div>
+      <div
+        className="sm:block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer hidden"
+        onClick={() => scrollTo('#contact')}
       >
         Contacts
-      </Link>
+      </div>
     </header>
   );
 }

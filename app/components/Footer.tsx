@@ -6,7 +6,7 @@ export default function Footer() {
       id="contact"
       className="min-h-screen flex sm:flex-row flex-col justify-center items-center p-5 text-center sm:justify-between sm:px-10"
     >
-      <div className="text-left text-[32px] tracking-tighter hidden sm:block font-text w-[640px]">
+      <div className="text-left text-[32px] tracking-tighter hidden sm:block font-main w-[640px]">
         <p>
           SMALL BATCH BEAN-TO-BAR CHOCOLATE
           <br />
@@ -16,7 +16,7 @@ export default function Footer() {
         </p>
 
         <div className="mt-8">
-          <p className="font-text text-[32px] font-bold uppercase">Follow Us</p>
+          <p className="font-main text-[32px] font-bold uppercase">Follow Us</p>
           <div className="flex items-center mt-2">
             <a href="https://www.facebook.com/LaLunaChocolate/" target="_blank" aria-label="Facebook" className="mr-4">
               <Facebook size={32} color="black" />
@@ -34,7 +34,7 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-col items-start sm:pt-10">
-        <h2 className="font-text text-4xl pb-1">CONTACT US</h2>
+        <h2 className="font-main text-4xl pb-1">CONTACT US</h2>
         <form className="w-full mx-auto flex flex-col">
           <div className="mb-1">
             <input
