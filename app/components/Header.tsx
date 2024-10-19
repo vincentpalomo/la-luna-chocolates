@@ -82,7 +82,7 @@ export default function Header() {
           </Link>
         </nav>
       </div>
-      <div className="">
+      <div className="hidden sm:flex">
         <Link
           href="#home"
           className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
