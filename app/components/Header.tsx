@@ -1,23 +1,36 @@
 'use client';
 
+import gsap from 'gsap';
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
+gsap.registerPlugin(ScrollToPlugin);
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const trigger = (selector: string) => {
+    toggleMenu();
+    scrollTo(selector);
+  };
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const scrollTo = (selector: string) => {
+    gsap.to(window, { duration: 2, scrollTo: { y: selector } });
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 flex justify-between items-center p-5 sm:px-10 bg-white z-50">
       {/* mobile */}
       <div className="sm:hidden fixed top-0 left-0 right-0 flex justify-between items-center p-5 sm:px-10 bg-white z-50">
-        <Link href="#home" className="text-2xl font-bold">
+        <div className="text-2xl font-bold" onClick={() => scrollTo('#home')}>
           <Image src="/images/lalunachocolates.svg" alt={``} width={300} height={300} className="h-20 w-20" />
-        </Link>
+        </div>
         {!isMenuOpen && (
           <button
             id="menuToggle"
@@ -45,53 +58,47 @@ export default function Header() {
               X
             </button>
           )}
-          <Link
-            href="#home"
+          <div
             className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-            onClick={toggleMenu}
+            onClick={() => trigger('#home')}
           >
             Home
-          </Link>
-          <Link
-            href="#about"
+          </div>
+          <div
             className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-            onClick={toggleMenu}
+            onClick={() => trigger('#about')}
           >
             About
-          </Link>
-          <Link
-            href="#chocolates"
+          </div>
+          <div
             className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-            onClick={toggleMenu}
+            onClick={() => trigger('#chocolates')}
           >
             Products
-          </Link>
-          <Link
-            href="#events"
+          </div>
+          <div
             className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-            onClick={toggleMenu}
+            onClick={() => trigger('#events')}
           >
             Events
-          </Link>
-          <Link
-            href="#contact"
+          </div>
+          <div
             className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-            onClick={toggleMenu}
+            onClick={() => trigger('#contact')}
           >
             Contacts
-          </Link>
+          </div>
         </nav>
       </div>
 
       {/* desktop */}
       <div className="hidden sm:flex">
-        <Link
-          href="#home"
-          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
-          onClick={toggleMenu}
+        <div
+          className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
+          onClick={() => scrollTo('#home')}
         >
           Home
-        </Link>
+        </div>
         <Link
           href="#about"
           className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
