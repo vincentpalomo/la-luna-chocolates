@@ -1,5 +1,7 @@
 # La Luna Chocolates
 
+Custom webpage for La Luna Chocolates
+
 - [Mockup]()
 - [Prototype]()
 
