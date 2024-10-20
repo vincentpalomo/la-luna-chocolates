@@ -9,11 +9,17 @@ const commissioner = Commissioner({ subsets: ['latin'], display: 'swap', variabl
 export const metadata = {
   title: 'LA LUNA Chocolates',
   description: 'Small batch bean-to-bar chocolate made in Baton Rouge',
+  icons: {
+    icon: 'images/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="images/favicon.ico" sizes="any" />
+      </head>
       <body className={`${inter.className} ${roboto_mono.variable} ${caveat.variable} ${commissioner.variable}`}>
         {children}
       </body>

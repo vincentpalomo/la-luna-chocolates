@@ -10,10 +10,6 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 gsap.registerPlugin(ScrollToPlugin);
 
 export default function Page() {
-  // const scrollTo = (selector: string) => {
-  //   gsap.to(window, { duration: 2, scrollTo: { y: selector } });
-  // };
-
   return (
     <>
       <Header />
