@@ -1,6 +1,39 @@
+'use client';
+
 import { Facebook, Instagram } from 'lucide-react';
+import React, { useState } from 'react';
 
 export default function Footer() {
+  const [formStatus, setFormStatus] = useState('');
+
+  console.log(formStatus);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setFormStatus('Message sent successfully!');
+        e.currentTarget.reset();
+      } else {
+        setFormStatus('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error sending email', error);
+      setFormStatus('An error occurred. Please try again later.');
+    }
+  };
+
   return (
     <footer
       id="contact"
@@ -37,7 +70,7 @@ export default function Footer() {
 
       <div className="flex flex-col items-start sm:pt-10">
         <h2 className="font-main text-4xl pb-1">CONTACT US</h2>
-        <form className="w-full mx-auto flex flex-col">
+        <form onSubmit={handleSubmit} className="w-full mx-auto flex flex-col">
           <div className="mb-1">
             <input
               type="text"
