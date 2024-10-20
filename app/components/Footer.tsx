@@ -73,7 +73,7 @@ export default function Footer() {
       </div>
 
       {/* form */}
-      <div className="flex flex-col items-start sm:pt-10 w-[525px]">
+      <div className="flex flex-col items-start sm:pt-10 sm:w-[525px] w-[95%]">
         <h2 className="font-main text-4xl pb-1">CONTACT US</h2>
         <form onSubmit={handleSubmit} className="w-full mx-auto flex flex-col">
           <div className="mb-1">
