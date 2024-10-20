@@ -4,17 +4,39 @@ import nodemailer from 'nodemailer';
 export async function POST(req: Request) {
   const { name, phone, email, message } = await req.json();
 
+  // const transporter = nodemailer.createTransport({
+  //   service: 'gmail',
+  //   auth: {
+  //     user: process.env.GMAIL_USER,
+  //     pass: process.env.GMAIL_PASS,
+  //   },
+  // });
+
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.zoho.com',
+    port: 465,
+    secure: true,
     auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_PASS,
+      user: process.env.ZOHO_USER,
+      pass: process.env.ZOHO_PASS,
     },
   });
 
+  // const mailOptions = {
+  //   from: process.env.GMAIL_USER,
+  //   to: process.env.GMAIL_USER,
+  //   subject: `New contact submission from ${name}`,
+  //   text: `
+  //     Name: ${name}
+  //     Phone: ${phone}
+  //     Email: ${email}
+  //     Message: ${message}
+  //   `,
+  // };
+
   const mailOptions = {
-    from: process.env.GMAIL_USER,
-    to: process.env.GMAIL_USER,
+    from: process.env.ZOHO_USER,
+    to: process.env.ZOHO_USER,
     subject: `New contact submission from ${name}`,
     text: `
       Name: ${name}
