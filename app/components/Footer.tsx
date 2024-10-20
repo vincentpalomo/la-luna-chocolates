@@ -10,7 +10,8 @@ export default function Footer() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget as HTMLFormElement;
+    const formData = new FormData(form);
     const data = Object.fromEntries(formData);
 
     try {
@@ -26,7 +27,7 @@ export default function Footer() {
 
       if (response.ok) {
         setFormStatus('Message sent successfully!');
-        // e.currentTarget.reset();
+        form.reset();
       } else {
         setFormStatus('Failed to send message. Please try again.');
       }
