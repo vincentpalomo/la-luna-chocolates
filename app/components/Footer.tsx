@@ -43,7 +43,7 @@ export default function Footer() {
       className="min-h-screen flex sm:flex-row flex-col justify-center items-center p-5 text-center sm:justify-between sm:px-10 2xl:px-12"
     >
       {/* message */}
-      <div className="text-left text-[32px] leading-[32px] tracking-tight hidden sm:block font-main w-[640px]">
+      <div className="text-left text-[32px] leading-[32px] tracking-tight hidden sm:block font-main w-[640px] 2xl:w-[50%] 2xl:text-[48px] 2xl:tracking-tighter 2xl:leading-[44px]">
         <p>
           SMALL BATCH BEAN-TO-BAR CHOCOLATE
           <br />
@@ -73,8 +73,8 @@ export default function Footer() {
       </div>
 
       {/* form */}
-      <div className="flex flex-col items-start sm:pt-10 sm:w-[525px] w-[95%]">
-        <h2 className="font-main text-4xl pb-1">CONTACT US</h2>
+      <div className="flex flex-col items-start sm:pt-10 sm:w-[525px] w-[95%] 2xl:w-[40%] 2xl:pt-0">
+        <h2 className="font-main text-4xl pb-1 2xl:text-[40px]">CONTACT US</h2>
         <form onSubmit={handleSubmit} className="w-full mx-auto flex flex-col">
           <div className="mb-1">
             <input
@@ -128,7 +128,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-8 sm:hidden flex flex-col items-center justify-center">
-        <p className="font-text text-[32px] font-bold uppercase">Follow Us</p>
+        <p className="font-text text-[32px] 2xl:text-[40px] font-bold uppercase">Follow Us</p>
         <div className="flex items-center mt-2">
           <a href="https://www.facebook.com/LaLunaChocolate/" target="_blank" aria-label="Facebook" className="mr-4">
             <Facebook size={32} color="black" />
