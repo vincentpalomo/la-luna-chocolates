@@ -22,9 +22,11 @@ export default function Footer() {
         body: JSON.stringify(data),
       });
 
+      console.log(response);
+
       if (response.ok) {
         setFormStatus('Message sent successfully!');
-        e.currentTarget.reset();
+        // e.currentTarget.reset();
       } else {
         setFormStatus('Failed to send message. Please try again.');
       }
@@ -119,6 +121,7 @@ export default function Footer() {
             Send Message
           </button>
         </form>
+        {formStatus && <p className="mt-4 text-lg font-bold">{formStatus}</p>}
       </div>
 
       <div className="mt-8 sm:hidden flex flex-col items-center justify-center">
