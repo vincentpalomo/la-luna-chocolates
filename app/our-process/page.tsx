@@ -5,7 +5,7 @@ export default function OurProcessPage() {
   return (
     <>
       <Header />
-      <main className="mx-10 mt-20 p-5">
+      <main className="sm:mx-10 mt-20 p-5">
         {/* <div className="relative h-[50vh] w-full mb-12">
           <Image src="/images/placeholder.svg" fill alt="Chocolate making process" className="object-cover" priority />
           <div className="absolute inset-0 bg-black/20">

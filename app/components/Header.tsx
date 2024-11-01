@@ -35,6 +35,11 @@ export default function Header() {
     setIsMenuOpen(false);
   };
 
+  const navigateTo = (path: string) => {
+    router.push(path);
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 flex justify-between items-center p-5 sm:px-10 bg-white z-50">
       {/* mobile */}
@@ -70,31 +75,43 @@ export default function Header() {
             </button>
           )}
           <div
-            className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            className="block  text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
             onClick={() => trigger('#home')}
           >
             Home
           </div>
           <div
-            className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            className="block  text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
             onClick={() => trigger('#about')}
           >
             About
           </div>
           <div
-            className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            className="block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            onClick={() => navigateTo('/our-cocoa')}
+          >
+            Our Cocoa
+          </div>
+          <div
+            className="block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            onClick={() => navigateTo('/our-process')}
+          >
+            Our Process
+          </div>
+          <div
+            className="block  text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
             onClick={() => trigger('#chocolates')}
           >
             Products
           </div>
           <div
-            className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            className="block  text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
             onClick={() => trigger('#events')}
           >
             Events
           </div>
           <div
-            className="block  text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            className="block  text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
             onClick={() => trigger('#contact')}
           >
             Contacts
@@ -103,7 +120,59 @@ export default function Header() {
       </div>
 
       {/* desktop */}
-      <div className="hidden sm:flex">
+      <div className="hidden sm:flex justify-between items-center w-full mx-2">
+        <div className="flex space-x-4">
+          <div
+            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            onClick={() => scrollTo('#home')}
+          >
+            Home
+          </div>
+          <div
+            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            onClick={() => scrollTo('#about')}
+          >
+            About
+          </div>
+          <div
+            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            onClick={() => scrollTo('#chocolates')}
+          >
+            Products
+          </div>
+          <div
+            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            onClick={() => scrollTo('#events')}
+          >
+            Events
+          </div>
+        </div>
+        <div className="text-2xl font-bold cursor-pointer flex-shrink-0" onClick={() => scrollTo('#home')}>
+          <Image src="/images/lalunachocolates.svg" alt={`logo`} width={300} height={300} className="h-20 w-20" />
+        </div>
+        <div className="flex space-x-4">
+          <div
+            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            onClick={() => navigateTo('/our-cocoa')}
+          >
+            Our Cocoa
+          </div>
+          <div
+            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            onClick={() => navigateTo('/our-process')}
+          >
+            Our Process
+          </div>
+          <div
+            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            onClick={() => scrollTo('#contact')}
+          >
+            Contacts
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="hidden sm:flex ">
         <div
           className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
           onClick={() => scrollTo('#home')}
@@ -135,12 +204,26 @@ export default function Header() {
       >
         <Image src="/images/lalunachocolates.svg" alt={`logo`} width={300} height={300} className="h-20 w-20" />
       </div>
-      <div
-        className="sm:block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer hidden"
-        onClick={() => scrollTo('#contact')}
-      >
-        Contacts
-      </div>
+      <div className="hidden sm:flex">
+        <div
+          className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
+          onClick={() => navigateTo('/our-cocoa')}
+        >
+          Our Cocoa
+        </div>
+        <div
+          className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
+          onClick={() => navigateTo('/our-process')}
+        >
+          Our Process
+        </div>
+        <div
+          className="sm:block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer hidden"
+          onClick={() => scrollTo('#contact')}
+        >
+          Contacts
+        </div>
+      </div> */}
     </header>
   );
 }

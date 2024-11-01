@@ -5,7 +5,7 @@ export default function OurCocoa() {
   return (
     <>
       <Header />
-      <main className="mx-10 mt-20 p-5">
+      <main className="sm:mx-10 mt-20 p-5">
         <section className="grid md:grid-cols-2 items-center gap-8 py-12">
           <div className="space-y-6 order-1 md:order-1">
             <h2 className="text-4xl font-bold tracking-tighter">OUR COCOA</h2>
