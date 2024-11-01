@@ -5,20 +5,20 @@ export default function About() {
     <section id="about" className="min-h-screen flex flex-col justify-center items-center p-5">
       <main className="sm:mx-10  mt-20">
         <div className="relative h-[50vh] w-full mb-12">
-          <Image src="/images/placeholder.svg" fill alt="Cacao pods on tree" className="object-cover" priority />
+          <Image src="/images/full-product-items.JPG" fill alt="Cacao pods on tree" className="object-cover" priority />
           <div className="absolute inset-0 bg-black/20">
             <h1 className="text-4xl md:text-6xl font-bold text-white p-8">OUR STORY</h1>
           </div>
         </div>
 
-        <div className="font-text text-xl md:text-3xl leading-tight md:leading-[30px] tracking-[-3%] text-center max-w-[95vw] 2xl:text-[40px] 2xl:leading-[40px] flex items-center justify-center mb-12">
+        {/* <div className="font-main font-semibold text-xl md:text-3xl leading-tight md:leading-[30px] tracking-[-3%] text-center max-w-[95vw] 2xl:text-[40px] 2xl:leading-[40px] sm:flex items-center justify-center mb-12 hidden">
           <div className="flex flex-col sm:items-start items-center">
             <p>Small batch bean-to-bar chocolate</p>
             <p>100% Fair trade beans</p>
             <p>100% Louisiana cane sugar</p>
             <p>Made in Baton Rouge</p>
           </div>
-        </div>
+        </div> */}
 
         <section className="grid md:grid-cols-2 items-center gap-8 py-12">
           <div className="space-y-6 order-1 md:order-1">
@@ -32,11 +32,11 @@ export default function About() {
           </div>
           <div className="relative h-[400px] md:h-[600px] order-2 md:order-2">
             <Image
-              src="/images/placeholder.svg"
+              src="/images/beans.jpg"
               width={800}
               height={600}
               alt="Harvesting cacao"
-              className="object-cover w-full h-full rounded-lg"
+              className="object-cover w-full h-full"
             />
           </div>
         </section>
@@ -44,11 +44,11 @@ export default function About() {
         <section className="grid md:grid-cols-2 items-center gap-8 py-12">
           <div className="relative h-[400px] md:h-[600px] order-2 md:order-1">
             <Image
-              src="/images/placeholder.svg"
+              src="/images/molds-beans-processor.JPG"
               width={800}
               height={600}
               alt="Chocolate making process"
-              className="object-cover w-full h-full rounded-lg"
+              className="object-cover w-full h-full"
             />
           </div>
           <div className="space-y-6 order-1 md:order-2">
@@ -73,11 +73,11 @@ export default function About() {
           </div>
           <div className="relative h-[400px] md:h-[600px] order-2 md:order-2">
             <Image
-              src="/images/placeholder.svg"
+              src="/images/molds.jpg"
               width={800}
               height={600}
               alt="Sustainable farming"
-              className="object-cover w-full h-full rounded-lg"
+              className="object-cover w-full h-full"
             />
           </div>
         </section>
