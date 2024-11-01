@@ -1,8 +1,7 @@
 'use client';
 
 import gsap from 'gsap';
-import { useState } from 'react';
-// import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useRouter, usePathname } from 'next/navigation';
@@ -11,6 +10,7 @@ gsap.registerPlugin(ScrollToPlugin);
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const router = useRouter();
   const pathname = usePathname();
 
@@ -28,17 +28,34 @@ export default function Header() {
       router.push('/');
       setTimeout(() => {
         gsap.to(window, { duration: 2, scrollTo: { y: selector } });
+        setActiveSection(selector);
       });
     } else {
       gsap.to(window, { duration: 2, scrollTo: { y: selector } });
+      setActiveSection(selector);
     }
     setIsMenuOpen(false);
   };
 
   const navigateTo = (path: string) => {
     router.push(path);
+    setActiveSection('');
     setIsMenuOpen(false);
   };
+
+  const isActive = (path: string) => {
+    if (path.startsWith('#')) {
+      return pathname === '/' && activeSection === path ? 'underline decoration-2 underline-offset-8' : '';
+    }
+    return pathname === path ? 'underline decoration-2 underline-offset-8' : '';
+  };
+
+  // Reset active section when navigating away from home page
+  useEffect(() => {
+    if (pathname !== '/') {
+      setActiveSection('');
+    }
+  }, [pathname]);
 
   return (
     <header className="fixed top-0 left-0 right-0 flex justify-between items-center p-5 sm:px-10 bg-white z-50">
@@ -60,7 +77,7 @@ export default function Header() {
           </button>
         )}
         <nav
-          className={`fixed top-0 left-0 right-0 bottom-0 h-screen w-screen bg-white pt-12 transform transition-transform duration-300 ease-in-out flex flex-col justify-center items-center ${
+          className={`fixed top-0 left-0 right-0 bottom-0 h-screen w-screen bg-white pt-12 transform transition-transform duration-300 ease-in-out flex flex-col justify-center items-start pl-5 ${
             isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           } lg:static lg:h-auto lg:w-auto lg:bg-transparent lg:transform-none lg:opacity-100 lg:flex-row lg:pt-0`}
         >
@@ -75,43 +92,57 @@ export default function Header() {
             </button>
           )}
           <div
-            className="block  text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            className={`block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 ${isActive(
+              '#home'
+            )}`}
             onClick={() => trigger('#home')}
           >
             Home
           </div>
           <div
-            className="block  text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            className={`block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 ${isActive(
+              '#about'
+            )}`}
             onClick={() => trigger('#about')}
           >
             About
           </div>
           <div
-            className="block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            className={`block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 ${isActive(
+              '/our-cocoa'
+            )}`}
             onClick={() => navigateTo('/our-cocoa')}
           >
             Our Cocoa
           </div>
           <div
-            className="block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            className={`block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 ${isActive(
+              '/our-process'
+            )}`}
             onClick={() => navigateTo('/our-process')}
           >
             Our Process
           </div>
           <div
-            className="block  text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            className={`block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 ${isActive(
+              '#chocolates'
+            )}`}
             onClick={() => trigger('#chocolates')}
           >
             Products
           </div>
           <div
-            className="block  text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            className={`block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 ${isActive(
+              '#events'
+            )}`}
             onClick={() => trigger('#events')}
           >
             Events
           </div>
           <div
-            className="block  text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4"
+            className={`block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 ${isActive(
+              '#contact'
+            )}`}
             onClick={() => trigger('#contact')}
           >
             Contacts
@@ -123,25 +154,33 @@ export default function Header() {
       <div className="hidden sm:flex justify-between items-center w-full mx-2">
         <div className="flex space-x-4">
           <div
-            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
+              '#home'
+            )}`}
             onClick={() => scrollTo('#home')}
           >
             Home
           </div>
           <div
-            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
+              '#about'
+            )}`}
             onClick={() => scrollTo('#about')}
           >
             About
           </div>
           <div
-            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
+              '#chocolates'
+            )}`}
             onClick={() => scrollTo('#chocolates')}
           >
             Products
           </div>
           <div
-            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
+              '#events'
+            )}`}
             onClick={() => scrollTo('#events')}
           >
             Events
@@ -152,78 +191,31 @@ export default function Header() {
         </div>
         <div className="flex space-x-4">
           <div
-            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
+              '/our-cocoa'
+            )}`}
             onClick={() => navigateTo('/our-cocoa')}
           >
             Our Cocoa
           </div>
           <div
-            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
+              '/our-process'
+            )}`}
             onClick={() => navigateTo('/our-process')}
           >
             Our Process
           </div>
           <div
-            className="block text-black uppercase text-[16px] no-underline lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap"
+            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
+              '#contact'
+            )}`}
             onClick={() => scrollTo('#contact')}
           >
             Contacts
           </div>
         </div>
       </div>
-
-      {/* <div className="hidden sm:flex ">
-        <div
-          className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
-          onClick={() => scrollTo('#home')}
-        >
-          Home
-        </div>
-        <div
-          className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
-          onClick={() => scrollTo('#about')}
-        >
-          About
-        </div>
-        <div
-          className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
-          onClick={() => scrollTo('#chocolates')}
-        >
-          Products
-        </div>
-        <div
-          className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
-          onClick={() => scrollTo('#events')}
-        >
-          Events
-        </div>
-      </div>
-      <div
-        className="text-2xl font-bold w-[35%] 2xl:w-[20%] hidden sm:flex cursor-pointer"
-        onClick={() => scrollTo('#home')}
-      >
-        <Image src="/images/lalunachocolates.svg" alt={`logo`} width={300} height={300} className="h-20 w-20" />
-      </div>
-      <div className="hidden sm:flex">
-        <div
-          className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
-          onClick={() => navigateTo('/our-cocoa')}
-        >
-          Our Cocoa
-        </div>
-        <div
-          className="block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer"
-          onClick={() => navigateTo('/our-process')}
-        >
-          Our Process
-        </div>
-        <div
-          className="sm:block text-black text-[72px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 cursor-pointer hidden"
-          onClick={() => scrollTo('#contact')}
-        >
-          Contacts
-        </div>
-      </div> */}
     </header>
   );
 }

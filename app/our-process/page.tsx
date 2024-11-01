@@ -16,7 +16,7 @@ export default function OurProcessPage() {
         <section className="grid md:grid-cols-2 items-center gap-8 py-12">
           <div className="space-y-6 order-1 md:order-1">
             <h2 className="text-4xl font-bold tracking-tighter">COCOA BEAN INSPECTION</h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground font-text">
               The first step I do when making chocolate is to inspect all of the beans. Occasionally some are a bit too
               small, or are cracked open already. I make sure I only move forward with the finest beans to ensure the
               best quality.
@@ -45,7 +45,7 @@ export default function OurProcessPage() {
           </div>
           <div className="space-y-6 order-1 md:order-2">
             <h2 className="text-4xl font-bold tracking-tighter">ROASTING COCOA BEANS</h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground font-text">
               All of the beans are laid out on trays and roasted at specific temperature and time intervals. Roasting
               allows for the beans to separate easier from the shells and enhances the flavor greatly.
             </p>
@@ -55,7 +55,7 @@ export default function OurProcessPage() {
         <section className="grid md:grid-cols-2 items-center gap-8 py-12">
           <div className="space-y-6 order-1 md:order-1">
             <h2 className="text-4xl font-bold tracking-tighter">GRINDING THE BEANS</h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground font-text">
               After roasting, I allow the beans to cool before grinding them. The grinding process separates the nib
               from the husk. The nib is the part that is used in chocolate, while the husk is just the shell of the
               bean.
@@ -84,7 +84,7 @@ export default function OurProcessPage() {
           </div>
           <div className="space-y-6 order-1 md:order-2">
             <h2 className="text-4xl font-bold tracking-tighter">WINNOWING COCOA BEANS</h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground font-text">
               After grinding, the beans and husks are all mixed together. The best way to separate them, so that only
               the nibs are used, is to winnow them. Winnowing is the process of blowing away the husks by using just the
               right amount of air pressure that allows only the heavier nibs to pass through the machine.
@@ -95,7 +95,7 @@ export default function OurProcessPage() {
         <section className="grid md:grid-cols-2 items-center gap-8 py-12">
           <div className="space-y-6 order-1 md:order-1">
             <h2 className="text-4xl font-bold tracking-tighter">REFINING AND MAKING CHOCOLATE</h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground font-text">
               The next step is to put the nibs into a melanger. This machine has two rotating stone wheels that turn the
               nibs into a chocolate liquor. After the nibs are now liquid, I add in any other ingredients needed to make
               the specific chocolate bar I am aiming for. After all of the ingredients are added, the chocolate
@@ -125,7 +125,7 @@ export default function OurProcessPage() {
           </div>
           <div className="space-y-6 order-1 md:order-2">
             <h2 className="text-4xl font-bold tracking-tighter">CHOCOLATE TEMPERING</h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground font-text">
               After the chocolate is smooth and runny, and all ingredients are properly incorporated, the chocolate must
               be tempered. Chocolate has many possible crystalline states, and only one of them allows for it to shine,
               not melt on your fingers easily, and snap when you break it. To get this perfectly tempered chocolate, you
@@ -138,7 +138,7 @@ export default function OurProcessPage() {
         <section className="grid md:grid-cols-2 items-center gap-8 py-12">
           <div className="space-y-6 order-1 md:order-1">
             <h2 className="text-4xl font-bold tracking-tighter">POURING MOLDS</h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground font-text">
               After the chocolate has been properly tempered, it&apos;s time to pour it into the mold! After pouring,
               each mold is vibrated until the air bubbles are released and the chocolate is spread evenly. Then, the
               chocolate is allowed to cool until the bar is solid and it can be wrapped and enjoyed by you!
