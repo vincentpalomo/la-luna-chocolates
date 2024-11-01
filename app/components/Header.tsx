@@ -5,11 +5,14 @@ import { useState } from 'react';
 // import Link from 'next/link';
 import Image from 'next/image';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { useRouter, usePathname } from 'next/navigation';
 
 gsap.registerPlugin(ScrollToPlugin);
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const trigger = (selector: string) => {
     toggleMenu();
@@ -21,7 +24,15 @@ export default function Header() {
   };
 
   const scrollTo = (selector: string) => {
-    gsap.to(window, { duration: 2, scrollTo: { y: selector } });
+    if (pathname !== '/') {
+      router.push('/');
+      setTimeout(() => {
+        gsap.to(window, { duration: 2, scrollTo: { y: selector } });
+      });
+    } else {
+      gsap.to(window, { duration: 2, scrollTo: { y: selector } });
+    }
+    setIsMenuOpen(false);
   };
 
   return (
@@ -51,7 +62,7 @@ export default function Header() {
           {isMenuOpen && (
             <button
               id="closeMenu"
-              className="absolute top-4 right-5 bg-none border-none text-4xl cursor-pointer z-50 lg:hidden"
+              className="absolute top-10 right-5 bg-none border-none text-4xl cursor-pointer z-50 lg:hidden"
               onClick={toggleMenu}
               aria-label="Close menu"
             >
