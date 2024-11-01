@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollToPlugin);
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const router = useRouter();
   const pathname = usePathname();
@@ -23,15 +24,19 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleAboutDropdown = () => {
+    setIsAboutDropdownOpen(!isAboutDropdownOpen);
+  };
+
   const scrollTo = (selector: string) => {
     if (pathname !== '/') {
       router.push('/');
       setTimeout(() => {
-        gsap.to(window, { duration: 2, scrollTo: { y: selector } });
+        gsap.to(window, { duration: 1, scrollTo: { y: selector } });
         setActiveSection(selector);
       });
     } else {
-      gsap.to(window, { duration: 2, scrollTo: { y: selector } });
+      gsap.to(window, { duration: 1, scrollTo: { y: selector } });
       setActiveSection(selector);
     }
     setIsMenuOpen(false);
@@ -41,6 +46,7 @@ export default function Header() {
     router.push(path);
     setActiveSection('');
     setIsMenuOpen(false);
+    setIsAboutDropdownOpen(false); // Close dropdown on navigation
   };
 
   const isActive = (path: string) => {
@@ -50,7 +56,6 @@ export default function Header() {
     return pathname === path ? 'underline decoration-2 underline-offset-8' : '';
   };
 
-  // Reset active section when navigating away from home page
   useEffect(() => {
     if (pathname !== '/') {
       setActiveSection('');
@@ -99,29 +104,37 @@ export default function Header() {
           >
             Home
           </div>
-          <div
-            className={`block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 ${isActive(
-              '#about'
-            )}`}
-            onClick={() => trigger('#about')}
-          >
-            About
-          </div>
-          <div
-            className={`block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 ${isActive(
-              '/our-cocoa'
-            )}`}
-            onClick={() => navigateTo('/our-cocoa')}
-          >
-            Our Cocoa
-          </div>
-          <div
-            className={`block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 ${isActive(
-              '/our-process'
-            )}`}
-            onClick={() => navigateTo('/our-process')}
-          >
-            Our Process
+          <div className="relative">
+            <div
+              className={`block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 ${
+                isActive('#about') || isActive('/our-story') || isActive('/our-cocoa') || isActive('/our-process')
+              }`}
+              onClick={toggleAboutDropdown}
+            >
+              About<span>&#9662;</span> {/* ▼ */}
+            </div>
+            {isAboutDropdownOpen && (
+              <div className="ml-4 mt-2">
+                <div
+                  className="block text-black text-[40px] capitalize sm:uppercase sm:text-[16px] no-underline lg:py-1 lg:px-2 cursor-pointer"
+                  onClick={() => navigateTo('/our-story')}
+                >
+                  Our Story
+                </div>
+                <div
+                  className="block text-black text-[40px] capitalize sm:uppercase sm:text-[16px] no-underline lg:py-1 lg:px-2"
+                  onClick={() => navigateTo('/our-cocoa')}
+                >
+                  Our Cocoa
+                </div>
+                <div
+                  className="block text-black text-[40px] capitalize sm:uppercase sm:text-[16px] no-underline lg:py-1 lg:px-2"
+                  onClick={() => navigateTo('/our-process')}
+                >
+                  Our Process
+                </div>
+              </div>
+            )}
           </div>
           <div
             className={`block text-black text-[60px] capitalize sm:uppercase sm:text-[20px] no-underline lg:inline-block lg:py-2 lg:px-4 ${isActive(
@@ -150,69 +163,94 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* desktop */}
       <div className="hidden sm:flex justify-between items-center w-full mx-2">
-        <div className="flex space-x-4">
-          <div
-            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
-              '#home'
-            )}`}
-            onClick={() => scrollTo('#home')}
-          >
-            Home
-          </div>
-          <div
-            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
-              '#about'
-            )}`}
-            onClick={() => scrollTo('#about')}
-          >
-            About
-          </div>
-          <div
-            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
-              '#chocolates'
-            )}`}
-            onClick={() => scrollTo('#chocolates')}
-          >
-            Products
-          </div>
-          <div
-            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
-              '#events'
-            )}`}
-            onClick={() => scrollTo('#events')}
-          >
-            Events
+        {/* Left navigation group */}
+        <div className="flex-1 flex justify-start">
+          <div className="flex space-x-4 items-center">
+            <div
+              className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
+                '#home'
+              )}`}
+              onClick={() => scrollTo('#home')}
+            >
+              Home
+            </div>
+            {/* About dropdown */}
+            <div className="relative">
+              <div
+                className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
+                  '#about'
+                )}`}
+                onClick={toggleAboutDropdown}
+              >
+                About<span>&#9662;</span>
+              </div>
+              {isAboutDropdownOpen && (
+                <div className="absolute top-full mt-2 w-48 bg-white border-2">
+                  <div
+                    className={`block text-black uppercase text-[16px] px-4 py-2 hover:bg-gray-100 cursor-pointer ${isActive(
+                      '/our-story'
+                    )}`}
+                    onClick={() => navigateTo('/our-story')}
+                  >
+                    Our Story
+                  </div>
+                  <div
+                    className={`block text-black uppercase text-[16px] px-4 py-2 hover:bg-gray-100 cursor-pointer ${isActive(
+                      '/our-cocoa'
+                    )}`}
+                    onClick={() => navigateTo('/our-cocoa')}
+                  >
+                    Our Cocoa
+                  </div>
+                  <div
+                    className={`block text-black uppercase text-[16px] px-4 py-2 hover:bg-gray-100 cursor-pointer ${isActive(
+                      '/our-process'
+                    )}`}
+                    onClick={() => navigateTo('/our-process')}
+                  >
+                    Our Process
+                  </div>
+                </div>
+              )}
+            </div>
+            <div
+              className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
+                '#chocolates'
+              )}`}
+              onClick={() => scrollTo('#chocolates')}
+            >
+              Products
+            </div>
+            <div
+              className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
+                '#events'
+              )}`}
+              onClick={() => scrollTo('#events')}
+            >
+              Events
+            </div>
           </div>
         </div>
-        <div className="text-2xl font-bold cursor-pointer flex-shrink-0" onClick={() => scrollTo('#home')}>
-          <Image src="/images/lalunachocolates.svg" alt={`logo`} width={300} height={300} className="h-20 w-20" />
+
+        {/* Center logo */}
+        <div className="flex-none mx-8">
+          <div className="text-2xl font-bold cursor-pointer" onClick={() => scrollTo('#home')}>
+            <Image src="/images/lalunachocolates.svg" alt={`logo`} width={300} height={300} className="h-20 w-20" />
+          </div>
         </div>
-        <div className="flex space-x-4">
-          <div
-            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
-              '/our-cocoa'
-            )}`}
-            onClick={() => navigateTo('/our-cocoa')}
-          >
-            Our Cocoa
-          </div>
-          <div
-            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
-              '/our-process'
-            )}`}
-            onClick={() => navigateTo('/our-process')}
-          >
-            Our Process
-          </div>
-          <div
-            className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
-              '#contact'
-            )}`}
-            onClick={() => scrollTo('#contact')}
-          >
-            Contacts
+
+        {/* Right navigation group */}
+        <div className="flex-1 flex justify-end">
+          <div className="flex space-x-4 items-center">
+            <div
+              className={`block text-black uppercase text-[16px] lg:inline-block lg:py-2 lg:px-2 cursor-pointer whitespace-nowrap ${isActive(
+                '#contact'
+              )}`}
+              onClick={() => scrollTo('#contact')}
+            >
+              Contacts
+            </div>
           </div>
         </div>
       </div>

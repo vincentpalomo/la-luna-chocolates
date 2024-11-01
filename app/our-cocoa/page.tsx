@@ -8,7 +8,7 @@ export default function OurCocoa() {
       <main className="sm:mx-10 mt-20 p-5">
         <section className="grid md:grid-cols-2 items-center gap-8 py-12">
           <div className="space-y-6 order-1 md:order-1">
-            <h2 className="text-4xl font-bold tracking-tighter">OUR COCOA</h2>
+            <h2 className="text-4xl font-bold tracking-tighter">GLOBAL SOURCING</h2>
             <p className="text-lg text-muted-foreground font-text">
               For our cocoa, we use beans from around the world. My current bean of choice is a direct trade bean from
               Uganda. Individual smallholder farmers surveyed and contracted by company staff supply our fermentation
