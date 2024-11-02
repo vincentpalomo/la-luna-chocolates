@@ -163,6 +163,7 @@ export default function Header() {
         </nav>
       </div>
 
+      {/* desktop */}
       <div className="hidden sm:flex justify-between items-center w-full mx-2">
         {/* Left navigation group */}
         <div className="flex-1 flex justify-start">
