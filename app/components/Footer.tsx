@@ -6,8 +6,6 @@ import React, { useState } from 'react';
 export default function Footer() {
   const [formStatus, setFormStatus] = useState('');
 
-  console.log(formStatus);
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget as HTMLFormElement;
