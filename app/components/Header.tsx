@@ -158,7 +158,7 @@ export default function Header() {
             )}`}
             onClick={() => trigger('#contact')}
           >
-            Contacts
+            Contact
           </div>
         </nav>
       </div>
@@ -249,7 +249,7 @@ export default function Header() {
               )}`}
               onClick={() => scrollTo('#contact')}
             >
-              Contacts
+              Contact
             </div>
           </div>
         </div>
