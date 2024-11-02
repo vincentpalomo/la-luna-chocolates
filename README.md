@@ -1,6 +1,6 @@
 # La Luna Chocolates
 
-Custom webpage for La Luna Chocolates
+A custom Next.js website for La Luna Chocolates, designed to provide a smooth, engaging user experience. Features include a responsive layout, interactive UI with smooth transitions, and fast loading optimized through Vercel. The site also includes an email form for collecting user information, integrated with SMTP for direct communication. Developed using Next.js, React, and Figma, and automatically deployed with Vercel for seamless updates.
 
 - [Mockup]()
 - [Prototype]()
