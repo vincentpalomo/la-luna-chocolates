@@ -34,7 +34,7 @@ export default function Header() {
       setTimeout(() => {
         gsap.to(window, { duration: 1, scrollTo: { y: selector } });
         setActiveSection(selector);
-      });
+      }, 100);
     } else {
       gsap.to(window, { duration: 1, scrollTo: { y: selector } });
       setActiveSection(selector);
