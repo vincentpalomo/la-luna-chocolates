@@ -19,7 +19,7 @@ export default function Chocolates() {
               alt={`${chocolate.type}`}
               width={300}
               height={300}
-              className="w-full sm:h-[500px] h-[300px] object-cover"
+              className="w-full h-[500px] sm:object-cover object-contain"
             />
             <div className="mt-2 text-center font-text text-[20px]">{chocolate.type}</div>
           </div>
